@@ -157,6 +157,31 @@ When working across multiple repositories:
 1. Read instructions from both repositories
 2. Follow the more restrictive rule when there's a conflict
 3. Clearly indicate which repository each action applies to
+
+---
+
+## CRITICAL: No Auto-Commit
+
+**NEVER automatically make a git commit.** Always ask the user first:
+
+1. Complete your work (code, docs, etc.)
+2. Call `ask_user` to ask: "Ready to commit? I can commit with message 'X' or provide the message for you to commit manually."
+3. Only commit if user explicitly approves
+
+This prevents unwanted commits when the user has additional input or wants to review changes first.
+
+---
+
+## Updating Tribunal in Projects
+
+When CopilotTribunal is updated and the user asks to propagate changes:
+
+1. **Read** the Update Workflow section in CopilotTribunal/README.md
+2. **Compare** changed files in CopilotTribunal with project versions
+3. **Merge** new content while preserving `<!-- PROJECT-SPECIFIC -->` sections
+4. **Present** changes via `plan_review` before applying
+
+**Key rule:** Never blindly overwrite — always merge with customizations preserved.
 ```
 
 ### Step 2: Discover Repositories
@@ -400,6 +425,62 @@ These prompts search [github.com/github/awesome-copilot](https://github.com/gith
 
 ---
 
+## 🔄 Updating Existing Projects
+
+When CopilotTribunal is updated with new features, directives, or fixes, you need to propagate those changes to your existing projects **without overwriting customizations**.
+
+> **For Copilot:** When a user asks to "update tribunal", "sync .github", "propagate changes", or similar, follow this workflow.
+
+### Update Workflow
+
+1. **Identify what changed** in CopilotTribunal:
+   - Check `CopilotTribunal/docs/dev/CHANGELOG.md` for recent changes
+   - Or ask the user what specific updates they want to propagate
+
+2. **For workspace router** (`<workspace-root>/.github/copilot-instructions.md`):
+   - Compare with CopilotTribunal's router template in README.md
+   - **ADD** new sections (e.g., new mandatory rules)
+   - **PRESERVE** user's routing table and custom rules
+   - **MERGE** conflicting sections by combining both (user customizations take priority)
+
+3. **For project `.github/` folders** (e.g., `USD/.github/`, `JARVIS/.github/`):
+   - Compare each file with CopilotTribunal's template version
+   - Use this merge strategy:
+
+| File Type | Merge Strategy |
+|-----------|----------------|
+| `copilot-instructions.md` | Add new rules, preserve project-specific sections (marked with `<!-- PROJECT-SPECIFIC -->`) |
+| `agents/*.agent.md` | Add new agents, update existing only if project hasn't customized them |
+| `processes/*.md` | Replace with latest (these are reference docs) |
+| `prompts/*.prompt.md` | Add new prompts, preserve custom prompts |
+| `instructions/*.instructions.md` | Preserve all (these are project-specific by design) |
+
+4. **Present changes before applying** using `plan_review`:
+   - Show what will be added/modified/preserved
+   - Wait for user approval
+
+### Marking Project-Specific Sections
+
+To protect customizations during future updates, wrap them with markers:
+
+```markdown
+<!-- PROJECT-SPECIFIC: START -->
+## My Custom Section
+This section contains project-specific rules that should not be overwritten.
+<!-- PROJECT-SPECIFIC: END -->
+```
+
+### Quick Update Commands
+
+| User Says | Action |
+|-----------|--------|
+| "Update tribunal" | Full sync of all projects |
+| "Update agents" | Sync only `.github/agents/` |
+| "Update processes" | Replace `.github/processes/` with latest |
+| "Add new rule X" | Add specific rule to all projects |
+
+---
+
 ## What's Included
 
 | Component | Purpose |
@@ -638,6 +719,12 @@ CopilotTribunal is adapted for personal usage by Camilo Valencia, based on Githu
 ---
 
 ## Changelog
+
+### v5.0.1 (2025-01-18)
+- **NEW: Update Workflow** -- Instructions for propagating Tribunal changes to existing projects without overwriting customizations
+- **NEW: Code Quality Directive** -- QA Validator now enforces zero Pylance/linter warnings (with MCU exceptions)
+- **NEW: No Auto-Commit Rule** -- Main agent must ask before making commits
+- Updated router template with Update Workflow section and new Quick Links
 
 ### v5.0.0 (2025-12-24)
 - **🎉 Renamed to CopilotTribunal** -- New identity reflecting the structured, tribunal-like workflow

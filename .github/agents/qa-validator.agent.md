@@ -88,6 +88,29 @@ Returning to main agent.
 - Were existing tests updated for API changes?
 - Are there tests for new functionality?
 
+### 5. Code Quality - Zero Warnings Policy
+
+**All code must have zero Pylance, ESLint, or other static analysis warnings.**
+
+This is a **strict requirement** with only these exceptions:
+
+| Acceptable Warning | Reason |
+|--------------------|--------|
+| Missing imports for MCU-only code | Libraries like `esp32`, `machine`, `RPi.GPIO` aren't available on host |
+| Platform-specific imports | Code guarded by `#ifdef ARDUINO` or `if sys.platform` may show unresolved |
+| PlatformIO library imports | Dependencies only available inside PlatformIO build environment |
+
+**How to validate:**
+- Run `get_errors` tool on modified files
+- Check VS Code Problems panel (Ctrl+Shift+M)
+- For Python: Ensure Pylance shows no errors/warnings
+- For C/C++: Ensure no compiler warnings in `pio run` output
+
+**If warnings exist:**
+- Report as `[X]` (FAIL) status
+- List each warning with file and line number
+- Do NOT approve work with unaddressed warnings
+
 ## Status Legend
 
 | Status | Meaning | Action |
