@@ -494,6 +494,7 @@ This section contains project-specific rules that should not be overwritten.
 | **Standard Repo Structure** | Consistent folder layout for new projects |
 | **Quality Processes** | Agent patterns and lifecycle documentation |
 | **VS Code Settings** | Terminal auto-approve rules and Copilot configuration |
+| **Base .gitignore** | Common ignore patterns (Python, build outputs, IDE files) |
 
 ---
 
