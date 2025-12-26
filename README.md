@@ -127,6 +127,22 @@ Before responding, identify which repository the user is working in:
 
 ---
 
+## CRITICAL: Agent Priority Order
+
+When invoking agents (Scribe, Planner, Worker, etc.):
+
+1. **FIRST:** Check `<project>/.github/agents/` for project-specific agent
+2. **FALLBACK:** Only if missing or vague, use `CopilotTribunal/.github/agents/`
+
+**Example for USD project:**
+- Scribe → Use `USD/.github/agents/scribe.agent.md` (has project-specific domain)
+- NOT → `CopilotTribunal/.github/agents/scribe.agent.md`
+
+**CopilotTribunal is a TEMPLATE repository** — its agents are reference implementations.
+Each project's agents may have customizations which need to be prioritized.
+
+---
+
 ## When Context Is Ambiguous
 
 If you cannot determine which repository the user is working in:
