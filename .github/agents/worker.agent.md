@@ -32,6 +32,17 @@ You are a **Worker** subagent under the main agent. You receive focused tasks fr
 
 ---
 
+## MANDATORY: Date Verification
+
+**Before creating or updating ANY documentation**, run this command to get the current date:
+
+- **PowerShell:** `Get-Date -Format "yyyy-MM-dd"`  
+- **Bash/macOS:** `date +%Y-%m-%d`
+
+**NEVER guess, assume, or hallucinate a date.** Always use the retrieved value for timestamps, changelog entries, and document headers. If you cannot run the command, use `[DATE]` as a placeholder and note it in your output.
+
+---
+
 ## Core Engineering Principles
 
 Apply these principles pragmatically based on context:
