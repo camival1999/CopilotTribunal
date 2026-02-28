@@ -1,7 +1,7 @@
 ---
 description: 'Analyzes requests, gathers context, recommends Worker for execution'
 name: Planner
-model: Claude Opus 4.5
+model: Claude Opus 4.6
 tools: ['*', '-ask_user', '-git_commit', '-git_push']
 ---
 

@@ -16,9 +16,9 @@ CopilotTribunal provides a structured, spec-driven approach to AI-assisted devel
 | **VS Code** | Latest version |
 | **GitHub Copilot** | Copilot Pro or Business subscription |
 | **Copilot Mode** | Agent mode (not Ask or Edit) |
-| **Model** | Claude Opus 4.5 (Preview) -- highly recommended |
+| **Model** | Claude Opus 4.6 -- highly recommended |
 
-**To configure:** Open Copilot Chat -> Click mode dropdown -> Select "Agent" -> Click model dropdown -> Select "Claude Opus 4.5 (Preview)"
+**To configure:** Open Copilot Chat -> Click mode dropdown -> Select "Agent" -> Click model dropdown -> Select "Claude Opus 4.6"
 
 ---
 
@@ -309,13 +309,13 @@ If user asks for setup but Copilot cannot access tools (file creation, terminal,
 
 #### User Has Not Configured the Recommended Model
 
-For best results, Copilot should use **Claude Opus 4.5 (Preview)** or a similar high-capability model.
+For best results, Copilot should use **Claude Opus 4.6** or a similar high-capability model.
 
 If you detect the user might be using a less capable model (e.g., responses seem limited, tool calls fail unexpectedly, or user mentions model issues):
-1. Explain: "This starter kit works best with Claude Opus 4.5 (Preview). To change your model:"
+1. Explain: "This starter kit works best with Claude Opus 4.6. To change your model:"
 2. Instructions:
    - Click the model dropdown in the Copilot chat panel (usually shows "GPT-4o" or similar)
-   - Select "Claude Opus 4.5 (Preview)" or "Claude Sonnet 4" 
+   - Select "Claude Opus 4.6" or "Claude Sonnet 4" 
    - If not available, check that you have GitHub Copilot Pro or Business subscription
 3. Note: Model availability depends on your Copilot subscription tier
 

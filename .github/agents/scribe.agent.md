@@ -1,7 +1,7 @@
 ---
 description: 'Tribunal Scribe - maintains documentation, tracks features/bugs/progress'
 name: Scribe
-model: Claude Opus 4.5
+model: Claude Opus 4.6
 tools: ['read_file', 'file_search', 'grep_search', 'semantic_search', 'create_file', 'replace_string_in_file', 'multi_replace_string_in_file', '-ask_user', '-git_commit', '-git_push', '-run_in_terminal']
 ---
 

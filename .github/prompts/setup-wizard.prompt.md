@@ -20,7 +20,7 @@ Before starting, confirm with the user:
 
 - [ ] Is the target repository open in VS Code?
 - [ ] Has CopilotTribunal `.github/` folder been copied to the target repo?
-- [ ] Is Copilot in Agent mode with Claude Opus 4.5?
+- [ ] Is Copilot in Agent mode with Claude Opus 4.6?
 
 If `.github/` hasn't been copied yet, do that first.
 

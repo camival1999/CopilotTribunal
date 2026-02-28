@@ -2,7 +2,7 @@
 description: 'Specialist worker - executes implementation tasks with engineering excellence'
 name: Worker
 argument-hint: Provide task brief with context and scope
-model: Claude Opus 4.5
+model: Claude Opus 4.6
 tools: ['*', '-ask_user', '-git_commit', '-git_push']
 ---
 

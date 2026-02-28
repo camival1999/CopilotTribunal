@@ -1,7 +1,7 @@
 ---
 name: 'Validator'
 description: 'Validates that completed work actually answers the user request and follows conventions'
-model: Claude Opus 4.5
+model: Claude Opus 4.6
 tools: ['*', '-ask_user', '-git_commit', '-git_push']
 ---
 

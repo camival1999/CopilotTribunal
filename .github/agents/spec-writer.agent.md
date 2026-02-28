@@ -1,7 +1,7 @@
 ---
 description: 'Spec Writer - creates and maintains project specifications following SDD workflow'
 name: Spec Writer
-model: Claude Opus 4.5
+model: Claude Opus 4.6
 tools: ['read_file', 'file_search', 'grep_search', 'semantic_search', 'create_file', 'replace_string_in_file', 'multi_replace_string_in_file', 'fetch_webpage', '-ask_user', '-git_commit', '-git_push']
 ---
 
